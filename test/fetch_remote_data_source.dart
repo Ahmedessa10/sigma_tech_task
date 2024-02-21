@@ -15,7 +15,7 @@ Future<List<User>> fetchUsers(http.Client client) async {
     return List<UserModel>.from(
         (json['users'] as List).map((e) => UserModel.fromJson(e)));
   } else {
-    
+
     // If the server did not return a 200 OK response,
     throw Exception('Failed to load album');
   }

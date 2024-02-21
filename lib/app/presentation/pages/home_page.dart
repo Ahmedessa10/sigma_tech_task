@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../domain/entities/user.dart';
@@ -69,7 +70,7 @@ class _UserListState extends State<UserList> {
           current is FilterUserSuccess ||
           current is AddedPlayerSuccess ||
           current is DeletePlayerSuccess ||
-          current is GetUserLoaded,
+          current is GetUserLoaded ||current is GetUserLoading,
       builder: (context, state) {
         return Column(
           children: [
@@ -81,6 +82,9 @@ class _UserListState extends State<UserList> {
 
             // Displaying a list of players with add/remove buttons
             const BuildPlayerList(),
+            state is GetUserLoading
+                ? CupertinoActivityIndicator()
+                : SizedBox.shrink(),
           ],
         );
       },

@@ -27,7 +27,7 @@ class UserCubit extends Cubit<UserState> {
     );
   }
 
-  int currentPage = 10; // Track the current page
+  int currentPage = 20; // Track the current page
 
   // Fetch more users for pagination
   Future<void> fetchMoreUsers() async {
